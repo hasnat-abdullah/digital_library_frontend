@@ -1,4 +1,4 @@
-const BASE_URL = 'http://127.0.0.1:8000';
+const BASE_URL = 'http://127.0.0.1:8000'; // Base URL should be in .env file
 
 
 async function handleErrors(response) {
