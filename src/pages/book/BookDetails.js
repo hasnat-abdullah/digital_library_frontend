@@ -18,7 +18,7 @@ function BookDetails() {
         };
 
         fetchData();
-    }, []);
+    }, [bookId]);
 
 
   return (

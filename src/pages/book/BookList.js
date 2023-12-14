@@ -1,10 +1,7 @@
 import React, {useEffect, useState} from "react"
-import {Route, Routes, useParams} from "react-router-dom"
 import {BookListAPI} from "../../api/book/BookListAPI";
 import SearchIcon from "../../assets/icon/search.svg";
 import BookCard from "../../components/BookCard";
-
-// import {BookDetailsAPI} from "../api/book/BookDetailsAPI";
 
 function BookList() {
     const [books, setBooks] = useState([]);
