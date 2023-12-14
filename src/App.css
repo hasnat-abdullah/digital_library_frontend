@@ -39,6 +39,9 @@ h1 {
   -webkit-text-fill-color: transparent;
   width: fit-content;
 }
+.white-text {
+  color: white;
+}
 
 .search {
   width: 71%;

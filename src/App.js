@@ -1,53 +1,20 @@
-import React, {useState, useEffect} from "react";
-
+import React from "react";
+import {Link, Route, Routes} from "react-router-dom";
 import './App.css';
-import SearchIcon from './assets/icon/search.svg';
-import BookCard from './components/BookCard';
-import {BookListAPI} from "./api/book/BookListAPI";
+import BookList from "./pages/book/BookList";
+import BookDetails from "./pages/book/BookDetails";
 
 const App = () => {
-    const [books, setBooks] = useState([]);
-    const [searchTerm, setSearchTerm] = useState("");
 
-
-    useEffect(() => {
-       const fetchData = async () => {
-      try {
-        // Fetching the data using the BookListAPI
-        const data = await BookListAPI();
-        setBooks(data.results);
-      } catch (error) {
-        console.error('Error fetching books:', error.message);
-      }
-    };
-
-    // Call the fetchData function when the component mounts
-    fetchData();
-    }, []);
     return <div className='app'>
+        <Link to={`/`}>
         <h1>book Land</h1>
+        </Link>
 
-        <div className="search">
-            <input type="text" placeholder="Search for a book" value={searchTerm}
-                   onChange={(e) => setSearchTerm(e.target.value)}/>
-            <img
-                src={SearchIcon}
-                alt="Search"
-                onClick={() => BookListAPI()}
-            />
-        </div>
-
-        {
-            books?.length > 0 ? <div className="container">
-                {books.map((book) => (
-                        <BookCard book={book}/>
-                    )
-                )}
-            </div> : <div className="empty">
-                <h2>No books found</h2>
-            </div>
-        }
-
+        <Routes>
+            <Route strict path="/" element={<BookList />} />
+            <Route path="/books/:bookId" element={<BookDetails />} />
+        </Routes>
     </div>;
 }
 

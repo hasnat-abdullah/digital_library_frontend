@@ -1,10 +1,7 @@
 import {fetchData} from '../APIUtils';
 
-export function BookListAPI(title, publication_year, author) {
-    let endpoint = `api/v1/books/?`;
-    if (title) {
-        endpoint += `&title=${title}`;
-    }
+export function BookDetailsAPI(id) {
+    const endpoint = `api/v1/books/${id}`;
 
     const requestOptions = {
         method: 'GET',
